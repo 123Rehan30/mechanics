@@ -49,8 +49,8 @@
 </head>
 <body>
     <div class="payment-container">
-        <div class="payment-header">ORDER OVERVIEW &euro; 49.99$</div>
-        <form>
+        <div class="payment-header" id="order-overview">ORDER OVERVIEW</div>
+        <form onsubmit="return validateForm(event)">
             <label for="payment-method">PLEASE SELECT A PAYMENT METHOD</label>
             <select class="form-control" id="payment-method">
                 <option>Credit / Debit Card</option>
@@ -61,13 +61,14 @@
             <input type="text" id="first-name" class="form-control" placeholder="John" required>
             
             <label for="last-name">Last name</label>
-            <input type="text" id="last-name" class="form-control" placeholder="Doe"  required>
+            <input type="text" id="last-name" class="form-control" placeholder="Doe" required>
             
             <div class="mb-3">
                 <label for="cardNumber" class="form-label">Card Number</label>
                 <input type="text" class="form-control" placeholder="••• ••• ••• •••" id="cardNumber" pattern="[0-9]*" oninput="validateCardNumber(this)" maxlength="16" required>
                 <small id="error-message"></small>
             </div>
+
             <label for="cvv">CVV</label>
             <input type="number" id="cvv" class="form-control" placeholder="•••" required>
             
@@ -105,18 +106,19 @@
                 </select>
             </div>
             <div class="d-flex justify-content-between mt-3">
-               
-    
-            <button class="btn btn-submit mt-3" onclick="submitPayment()">Submit</button>
-        <button class="btn btn-cancel mt-2">Cancel</button>
+                <button type="submit" class="btn btn-submit mt-3">Submit</button>
+                <button type="button" class="btn btn-cancel mt-2">Cancel</button>
+            </div>
+        </form>
     </div>
-</form>
-</div>
+
     <script>
-              function validateCardNumber(input) {
+        // Function to validate card number (only numbers)
+        function validateCardNumber(input) {
             input.value = input.value.replace(/\D/g, ''); // Remove non-numeric characters
         }
 
+        // Function to validate form submission
         function validateForm(event) {
             let cardNumber = document.getElementById("cardNumber").value;
             let errorMessage = document.getElementById("error-message");
@@ -130,7 +132,21 @@
                 alert("Payment has been accepted!");
                 return true;
             }
-       }
+        }
+
+       
+    // Load and update order price dynamically from localStorage
+    window.onload = function () {
+        let quantity = localStorage.getItem("selectedQuantity") || "1";
+        let totalPrice = localStorage.getItem("totalPrice") || "49.99";
+
+        // Convert price to Euro (1 USD ≈ 0.92 EUR)
+        let priceInEuro = (parseFloat(totalPrice) * 0.92).toFixed(2);
+
+        // Update order overview
+        document.getElementById("order-overview").innerHTML = `ORDER OVERVIEW - ${quantity} item(s) - $${totalPrice} (€${priceInEuro})`;
+    };
+
     </script>
 </body>
 </html>

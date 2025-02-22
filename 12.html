@@ -136,7 +136,45 @@ transition: background-color 0.3s ease;
 .add-to-cart:hover {
 background-color: #d35400;
 }
+        /* Quantity Selector */
+        .quantity-container {
+            display: flex;
+            align-items: center;
+            margin-top: 20px;
+            font-size: 1.2rem;
+        }
 
+        .quantity-box {
+            display: flex;
+            align-items: center;
+            border: 2px solid #e67e22;
+            border-radius: 8px;
+            overflow: hidden;
+            margin-left: 10px;
+        }
+
+        .quantity-btn {
+            background-color: #e67e22;
+            color: white;
+            border: none;
+            padding: 10px 15px;
+            font-size: 1.2rem;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .quantity-btn:hover {
+            background-color: #d35400;
+        }
+
+        #quantity {
+            width: 50px;
+            height: 48px;
+            text-align: center;
+            font-size: 1.2rem;
+            border: none;
+            outline: none;
+        }
 
 </style>
 </head>
@@ -185,18 +223,42 @@ background-color: #d35400;
         <br>  <strong style="color: black;">.</strong>Durable, insulated, and designed for professional and DIY electrical work.
          <br><strong style="color: black;">.</strong> Ideal for electricians, technicians, and home repairs. 
         <br> <strong style="color: black;"> .</strong>Ensures safety and precision in every job.
+</p>
+        <p class="product-price">Price: $<span id="total-price">49.99</span></p>
 
-          <p class="product-price">$49.99</p>
-          <button class="add-to-cart" onclick="redirectToCart()">Add to Cart</button>
-      </div>
-  </div>
-</body>  <footer class="footer">
+        <div class="quantity-container">
+            <label for="quantity">Quantity:</label>
+            <div class="quantity-box">
+                <button class="quantity-btn" onclick="changeQuantity(-1)">−</button>
+                <input type="number" id="quantity" min="1" max="10" value="1" oninput="updatePrice()">
+                <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+            </div>
+        </div>
+
+        <button class="add-to-cart" onclick="redirectToCart()">Add to Cart</button>
+    </div>
+</div>
+
+<footer class="footer">
     <p>&copy; 2025 Your Company. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
 </footer>
+
 <script>
-  function redirectToCart() {
-      window.location.href = "payment.html"; // Change "cart.html" to your actual cart page URL
-  }
-  
-  </script>
-</html>
+    function changeQuantity(amount) {
+        let quantityInput = document.getElementById("quantity");
+        let newQuantity = Math.max(1, parseInt(quantityInput.value) + amount);
+        quantityInput.value = newQuantity;
+        updatePrice();
+    }
+
+    function updatePrice() {
+        let price = 49.99 * document.getElementById("quantity").value;
+        document.getElementById("total-price").textContent = price.toFixed(2);
+    }
+
+    function redirectToCart() {
+        window.location.href = "payment.html";
+    }
+</script>
+          
+         </html>
