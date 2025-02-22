@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Professional Form Page</title>
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+       
+ 
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+
+  /* Remove any default margin and padding for the body */
+  body {
+    font-family: Arial, sans-serif;
+    background-color: lightblue;
+    color: #333;
+    padding: 0;
+    margin: 0;
+  }
+
+  .navbar {
+    background-color: #3394b4 !important;
+    width: auto !important;
+    height: 100px !important;
+    margin: 0;
+    padding: 0;
+  }
+
+  .navbar-brand img {
+    height: 100px;
+    width: auto;
+  }
+
+  .container-fluid {
+    width: 90%; /* Narrowing the container */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+    padding: 50px 40px;
+  }
+
+  .container {
+    max-width: 1400px; /* Increased container width for a wider layout */
+    margin-top: 50px;
+  }
+
+  .form-container {
+    display: flex;
+    justify-content: space-between;
+    gap: 50px; /* Increased gap between the columns */
+    padding: 30px;
+  }
+
+  .form-column {
+    flex: 1;
+    min-width: 50%; /* Set a minimum width for the form column */
+ }
+
+/* Set the same height for both form-card and static-info */
+.form-card, .static-info {
+  border-radius: 15px;
+  box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+  padding: 40px;
+  background-color: white;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  height: 700px; /* Same height for both boxes */
+}
+
+
+  .form-card:hover, .static-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .form-title {
+    font-size: 2rem;
+    font-weight: 500;
+    color: #007bff;
+  }
+
+  .form-label {
+    font-weight: 700;
+    color: #555;
+  }
+
+  .btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    transition: background-color 0.3s ease;
+  }
+
+  .btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #004085;
+  }
+
+  .form-control {
+    border-radius: 8px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  }
+
+  .invalid-feedback {
+    font-size: 0.9rem;
+  }
+
+  .form-column h3 {
+    font-weight: 600;
+    color: #444;
+  }
+
+  .static-info {
+    background-color: #fff;
+    border-radius: 15px;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.1), 0 4px 6px rgba(0, 0, 0, 0.05);
+    padding: 40px; /* Increased padding for more space inside */
+    height: 700px; /* Increased height for static content box */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .static-info:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 25px rgba(0, 0, 0, 0.2), 0 6px 10px rgba(0, 0, 0, 0.1);
+  }
+
+  .footer {
+    background-color: #3394b4;
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    margin-top: 50px;
+  }
+
+  .footer a {
+    color: #f8f9fa;
+    text-decoration: none;
+  }
+
+  .footer a:hover {
+    text-decoration: underline;
+  }
+
+
+  </style>
+<body>
+  <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+          <div class="container-fluid">
+              <a class="navbar-brand" href="#"><img src="KhPTNa-removebg-preview.png" alt="Logo"></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                  <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                      <li class="nav-item">
+                          <a class="nav-link active" aria-current="page" href="inde.html">Home</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="inde.html">Our products</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="#">About Us</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="">Contact Us</a>
+                      </li>
+                  </ul>
+              </div>
+          </div>
+      </nav>
+  </header>
+
+  <!-- Main Content -->
+  <div class="container">
+    <div class="form-container">
+      <!-- Left Side Form -->
+      <div class="form-column">
+        <div class="form-card">
+          <h3 class="form-title">Create Account</h3>
+          <form id="form" method="POST" action="#">
+            <div class="mb-4">
+              <label for="name" class="form-label">Full Name</label>
+              <input type="text" class="form-control" id="name" required>
+              <div class="invalid-feedback">Name is required.</div>
+            </div>
+            <div class="mb-4">
+              <label for="email" class="form-label">Email</label>
+              <input type="email" class="form-control" id="email" required>
+              <div class="invalid-feedback">Please enter a valid email address.</div>
+            </div>
+            <div class="mb-4">
+              <label for="password" class="form-label">Password</label>
+              <input type="password" class="form-control" id="password" required>
+              <div class="invalid-feedback">Password is required.</div>
+            </div>
+            <button type="submit" class="btn btn-primary w-100">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <!-- Right Side Static Content -->
+      <div class="form-column">
+        <div class="static-info">
+          <h3>Why Create an Account?</h3>
+          <p>Having an account allows you to enjoy  a wide range of personalized features and settings. You can easily manage your preferences, customize your experience, and track your activity in a secure environment. With an account, you'll have quick access to exclusive content, receive updates tailored to your interests, and be able to keep your information safe and organized in one place.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+
+  <!-- Form Validation JS -->
+  <script>
+    // Bootstrap 5 custom form validation
+    (function () {
+      'use strict'
+      window.addEventListener('load', function () {
+        var form = document.getElementById('form');
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault();
+            event.stopPropagation();
+          }
+          form.classList.add('was-validated');
+        }, false);
+      }, false);
+    })();
+  </script>
+</body>  <footer class="footer">
+  <p>&copy; 2025 Your Company. All rights reserved. | <a href="#">Privacy Policy</a> | <a href="#">Terms & Conditions</a></p>
+</footer>
+</html>
